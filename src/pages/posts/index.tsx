@@ -101,13 +101,21 @@ export default function PostPage({ userSender, senderId }) {
     return (
         <div className="flex flex-col items-center p-4 bg-background-900 min-h-screen">
             <h1 className="text-3xl font-bold mb-4 text-fontColor-900">Tela de Posts</h1>
-            
-            {/* Botão para criar um novo post */}
-            <Link href="/create">
-                <button className="mb-4 bg-fontColor-900 text-white rounded py-2 px-4 hover:opacity-80">
-                    Criar Novo Post
-                </button>
-            </Link>
+
+            {/* Container para os botões, alinhados à direita */}
+            <div className="flex justify-end w-full mb-4">
+                <Link href="/create">
+                    <button className="bg-fontColor-900 text-white rounded py-2 px-4 hover:opacity-80 mr-2">
+                        Novo Post
+                    </button>
+                </Link>
+
+                <Link href="/admin">
+                    <button className="bg-fontColor-900 text-white rounded py-2 px-4 hover:opacity-80">
+                        Administrador
+                    </button>
+                </Link>
+            </div>
 
             {/* Campo de busca */}
             <form onSubmit={handleSearch} className="mb-4">
