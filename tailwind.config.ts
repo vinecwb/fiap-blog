@@ -8,11 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
     },
+    fontFamily:{
+      sans:['Arial', 'sans-serif']
+    },
+    colors:{
+      background:{
+        800:'#1b1e20',
+        900:'#1d2123',
+      },
+      fontColor:{
+      900:'#ED145B'
+      }
+    }
   },
   plugins: [],
 };
