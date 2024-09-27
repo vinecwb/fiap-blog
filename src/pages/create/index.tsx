@@ -11,7 +11,7 @@ export default function CreatePost() {
 
     useEffect(() => {
         if (!isTeacher()) {
-            router.push('/'); // Redireciona se não for teacher
+            router.push('/'); 
         }
         const userEmail = localStorage.getItem('email');
         setUserEmail(userEmail);

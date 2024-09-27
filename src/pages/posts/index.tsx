@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 interface IPost {
-    id: number; // Adicionando ID do post
+    id: number; 
     title: string;
     content: string;
     authorId: number;
@@ -55,14 +55,13 @@ export default function PostPage({ userSender, senderId }) {
                 const data = await response.json();
                 setPosts(data);
                 
-                // Buscar informações dos autores
-                const authorIds = [...new Set(data.map(post => post.authorId))]; // IDs únicos dos autores
+                const authorIds = [...new Set(data.map(post => post.authorId))]; 
                 const authorPromises = authorIds.map(id => 
                     fetch(`http://localhost:3001/users/${id}`).then(res => res.json())
                 );
                 const authorData = await Promise.all(authorPromises);
                 const authorMap = authorData.reduce((acc, author) => {
-                    acc[author.id] = author.email; // Mapeando ID do autor para o email
+                    acc[author.id] = author.email; 
                     return acc;
                 }, {});
                 setAuthors(authorMap);
@@ -102,7 +101,6 @@ export default function PostPage({ userSender, senderId }) {
         <div className="flex flex-col items-center p-4 bg-background-900 min-h-screen">
             <h1 className="text-3xl font-bold mb-4 text-fontColor-900">Tela de Posts</h1>
 
-            {/* Container para os botões, alinhados à direita */}
             <div className="flex justify-end w-full mb-4">
                 <Link href="/create">
                     <button className="bg-fontColor-900 text-white rounded py-2 px-4 hover:opacity-80 mr-2">
@@ -117,7 +115,7 @@ export default function PostPage({ userSender, senderId }) {
                 </Link>
             </div>
 
-            {/* Campo de busca */}
+
             <form onSubmit={handleSearch} className="mb-4">
                 <input
                     type="text"

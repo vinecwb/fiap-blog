@@ -9,7 +9,7 @@ export default function Register() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [role, setRole] = useState('') // Adicionando estado para o papel
+    const [role, setRole] = useState('') 
 
     const handleLogin = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
@@ -20,7 +20,7 @@ export default function Register() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name, email, password, role }), // Incluindo o papel na requisição
+            body: JSON.stringify({ name, email, password, role }), 
         })
 
         if (response.ok) {
@@ -69,14 +69,14 @@ export default function Register() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
-                {/* Seleção de papel */}
+ 
                 <p className="font-sans text-lg mt-2 mb-2 text-fontColor-900 bg-background-800">Selecione seu papel:</p>
                 <select
                     className="font-sans text-lg text-fontColor-900 bg-background-900 border border-fontColor-900 rounded-3xl p-2 w-5/6"
                     value={role}
                     onChange={(e) => setRole(e.target.value)}
                 >
-                    <option value="">Selecione um papel</option> {/* Placeholder */}
+                    <option value="">Selecione um papel</option> 
                     <option value="student">Aluno</option>
                     <option value="teacher">Professor</option>
                 </select>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { isTeacher } from '../../utils/auth'; // Importa a função que verifica a role
+import { isTeacher } from '../../utils/auth';
 
 interface IPost {
     id: number;
@@ -27,13 +27,13 @@ export default function AdminPostsPage({ posts }: { posts: IPost[] }) {
     const router = useRouter();
     const [searchQuery, setSearchQuery] = useState('');
     const [filteredPosts, setFilteredPosts] = useState<IPost[]>(posts);
-    const [errorMessage, setErrorMessage] = useState(''); // Estado para a mensagem de erro
+    const [errorMessage, setErrorMessage] = useState('');
     const postContainer = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        // Verifica se o usuário é um teacher
+        
         if (!isTeacher()) {
-            router.push('/'); // Redireciona se não for teacher
+            router.push('/'); 
         }
         setFilteredPosts(posts);
     }, [posts]);

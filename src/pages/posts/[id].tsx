@@ -7,7 +7,7 @@ export default function PostDetail() {
     const [post, setPost] = useState(null);
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
-    const [authorId, setAuthorId] = useState(null); // Pegar do localStorage ou do contexto
+    const [authorId, setAuthorId] = useState(null); 
 
     useEffect(() => {
         const fetchPost = async () => {
