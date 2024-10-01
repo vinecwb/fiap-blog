@@ -1,0 +1,105 @@
+.header {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.post2-title-buttons {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.header h1 {
+    font-size: 24px;
+    color: #ED145B;
+}
+
+.header button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ED145B;
+    color: #000000;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.header button:hover {
+    background-color: #c11146;
+}
+
+.search-bar {
+    display: flex;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    color: #a10e40;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+    padding: 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #ED145B;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-bar button:hover {
+    background-color: #c11146;
+}
+
+.post2 {
+    width: 100%;
+    max-width: 800px;
+}
+
+.post-card {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: #fff;
+    width: 100%;
+}
+
+.post2 h3 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.post2 p {
+    margin: 0 0 10px;
+    color: #555;
+}
+
+.post2 span {
+    display: block;
+    color: #777;
+    font-size: 14px;
+}
+
+.post-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.post-icons i {
+    cursor: pointer;
+}
+
+.post-icons i:hover {
+    color: #c11146;
+}

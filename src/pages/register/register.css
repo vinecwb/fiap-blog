@@ -1,5 +1,6 @@
 .container {
     background-color: #ffffff;
+    color: #ED145B;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -14,16 +15,15 @@
     color: #ED145B;
 }
 
-.email-field, .password-field {
+.name-field, .email-field, .password-field, .toggle-buttons {
     width: calc(100%);
     padding: 15px;
     margin: 10px 0;
-    color: #300011;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.login-button {
+button {
     width: 100%;
     padding: 15px;
     margin: 10px 0;
@@ -35,19 +35,35 @@
     font-size: 16px;
 }
 
-.login-button:hover {
-    background-color: #ED145B;
-}
-
-.register-button {
-    color: #ED145B;
-    text-decoration: none;
-    display: block;
-    margin: 10px 0;
-}
-
 .register-button:hover {
-    text-decoration: underline;
+    background-color: #a10e40;
+}
+
+.back-button {
+    background: #1D212380;
+
+    &:hover {
+        background: #1D212399 !important;
+    }
+}
+.toggle-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.toggle-buttons div {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ED145B;
+    background-color: #ffebee;
+    color: #ED145B;
+}
+
+.toggle-buttons .active {
+    background-color: #ED145B;
+    color: #ffffff;
 }
 
 .no-select {
@@ -60,11 +76,11 @@
         padding: 20px;
     }
 
-    .email-field, .password-field {
+    .name-field, .email-field, .password-field, .toggle-buttons {
         padding: 10px;
     }
 
-    .login-button {
+    .register-button {
         padding: 10px;
         font-size: 14px;
     }
