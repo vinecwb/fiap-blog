@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { isTeacher } from '../../utils/auth';
-
+import "./admin.css"
 interface IPost {
     id: number;
     title: string;
@@ -31,7 +31,6 @@ export default function AdminPostsPage({ posts }: { posts: IPost[] }) {
     const postContainer = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        
         if (!isTeacher()) {
             router.push('/'); 
         }
@@ -106,67 +105,59 @@ export default function AdminPostsPage({ posts }: { posts: IPost[] }) {
     };
 
     return (
-        <div className="flex flex-col items-center p-4 bg-background-900 min-h-screen">
-            <div className="flex justify-end w-full mb-4">
-                <button 
-                    onClick={() => window.history.back()} 
-                    className="bg-fontColor-900 text-white rounded py-2 px-4 hover:opacity-80 mr-2"
-                >
-                    Voltar
-                </button>
-            </div>
+      <div className="flex flex-col items-center p-4 bg-background-900 min-h-screen">
+          <div className="header">
+              <h1>Tela Administrativa de Posts</h1>
+              <button id="voltar" onClick={() => window.history.back()}>Voltar</button>
+          </div>
 
-            <h1 className="text-3xl font-bold mb-4 text-fontColor-900">Tela Administrativa de Posts</h1>
+          {errorMessage && (
+            <div className="mb-4 text-red-500">{errorMessage}</div>
+          )}
 
-            {/* Mensagem de erro, se existir */}
-            {errorMessage && (
-                <div className="mb-4 text-red-500">{errorMessage}</div>
-            )}
-
-            <form onSubmit={handleSearch} className="mb-4">
-                <input
-                    type="text"
-                    placeholder="Buscar posts..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="border border-fontColor-900 p-2 rounded mb-4 bg-background-900 text-fontColor-900"
-                />
-                <button type="submit" className="m-4 bg-fontColor-900 text-white rounded py-2 px-4 hover:opacity-80">Buscar</button>
-            </form>
-
-            <div ref={postContainer} className="w-full max-w-lg">
-                {filteredPosts.map((post) => (
-                    <div key={post.id} className="bg-background-800 border border-fontColor-900 p-4 mb-4 rounded shadow relative">
-                        <Link href={`/posts/${post.id}`}>
-                            <h3 className="text-xl font-semibold text-fontColor-900">{post.title}</h3>
-                        </Link>
-                        <p className="text-gray-700">{post.content}</p>
-                        <p className="text-sm text-gray-500">Autor: {post.authorId || 'Desconhecido'}</p>
-                        <p className="text-sm text-gray-500">Publicado: {post.published ? 'Sim' : 'Não'}</p>
-
-                        <div className="absolute top-2 right-2 flex space-x-2">
-                            <button 
-                                onClick={() => publishPost(post.id)} 
-                                className="bg-green-500 text-white p-2 rounded"
+          <form onSubmit={handleSearch}  className="search-bar">
+              <input
+                type="text"
+                placeholder="Buscar posts..."
+                value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button type="submit">Buscar</button>
+          </form>
+          <div ref={postContainer} className="post2">
+              {filteredPosts.map((post) => (
+                <div key={post.id} className="post-card p-4 mb-4">
+                    <div className="post2-title-buttons">
+                        <h3 className="text-xl font-semibold text-fontColor-900">{post.title}</h3>
+                        <div>
+                            <button
+                              onClick={() => publishPost(post.id)}
+                              className="bg-green-500 text-white p-2 rounded"
                             >
                                 ✔️
                             </button>
-                            <button 
-                                onClick={() => editPost(post.id)} 
-                                className="bg-blue-500 text-white p-2 rounded"
+                            <button
+                              onClick={() => editPost(post.id)}
+                              className="bg-blue-500 text-white p-2 rounded"
                             >
                                 ✏️
                             </button>
-                            <button 
-                                onClick={() => deletePost(post.id)} 
-                                className="bg-red-500 text-white p-2 rounded"
+                            <button
+                              onClick={() => deletePost(post.id)}
+                              className="bg-red-500 text-white p-2 rounded"
                             >
                                 ❌
                             </button>
                         </div>
                     </div>
-                ))}
-            </div>
-        </div>
+                    <Link href={`/posts/${post.id}`}>
+                        <p className="text-gray-700">{post.content}</p>
+                        <p className="text-sm text-gray-500">Autor: {post.authorId || 'Desconhecido'}</p>
+                        <span>Publicado: {post.published ? 'Sim' : 'Não'}</span>
+                    </Link>
+
+                </div>
+              ))}
+          </div>
+      </div>
     );
 }
