@@ -12,6 +12,7 @@
    - [Detalhes da Postagem](#detalhes-da-postagem)
    - [Gerenciar Postagens](#gerenciar-postagens)
    - [Criar Postagem](#criar-postagem)
+- [Vídeo](#video)
   
 
 ## Visão Geral
@@ -161,4 +162,11 @@ project-root/
    * Editar: Para modificar uma postagem existente.
    * Aprovar: Para tornar a postagem visível aos usuários.
    * Excluir: Para remover uma postagem.
+
+## Vídeo
+
+O vídeo com a explicação do projeto está disponível em:
+
+```bash
+https://drive.google.com/file/d/1RffcdBlYPI8GgHIAQ9r6rr-fHP89LQYK/view
 
