@@ -8,7 +8,22 @@ export const isTeacher = () => {
 
     try {
         const decodedToken: any = jwtDecode(token);
+
         return decodedToken.role === 'teacher';
+    } catch (error) {
+        console.error('Erro ao decodificar o token:', error);
+        return false;
+    }
+};
+
+export const getUserId = () => {
+    const token = localStorage.getItem('token');
+    if (!token) return false;
+
+    try {
+        const decodedToken: any = jwtDecode(token);
+
+        return decodedToken.userId;
     } catch (error) {
         console.error('Erro ao decodificar o token:', error);
         return false;

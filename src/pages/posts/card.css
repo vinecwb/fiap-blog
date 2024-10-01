@@ -1,0 +1,87 @@
+.post1 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.post1 h3 {
+    margin: 0 0 10px;
+    font-weight: bold;
+    font-size: 25px;
+    color: #333;
+}
+
+.post1 p {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: #555;
+}
+
+.post1 span {
+    display: block;
+    color: #777;
+    font-size: 14px;
+}
+
+.back-link {
+    color: #ED145B;
+    font-weight: lighter;
+}
+
+.comment-section {
+    margin-top: 10px;
+}
+
+.comment-section h4 {
+    margin-bottom: 8px;
+    color: #ED145B;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.comment p {
+    margin: 0;
+    color: #555;
+}
+
+.comment span {
+    display: block;
+    color: #777;
+    font-size: 12px;
+}
+
+.add-comment {
+    display: flex;
+    margin-top: 20px;
+}
+
+.add-comment input {
+    color: #a10e40;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+}
+
+.add-comment button {
+    padding: 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #ED145B;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-comment button:hover {
+    background-color: #c11146;
+}
